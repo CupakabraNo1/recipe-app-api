@@ -7,25 +7,26 @@ from django.utils.translation import gettext_lazy as _
 
 from core import models
 
+
 class UserAdmin(BaseUserAdmin):
     """Define the admin page for users."""
     ordering = ['id']
     list_display = ['email', 'name']
     fieldsets = (
-        (None, {'fields': ('email','password')}),
+        (None, {'fields': ('email', 'password')}),
         (
-            _('Permissions'), 
+            _('Permissions'),
             {
                 'fields': (
                     'is_active',
                     'is_staff',
-                    'is_superuser'
+                    'is_superuser',
                 )
             }
         ),
         (
-            _('Important dates'), 
-            { 
+            _('Important dates'),
+            {
                 'fields': (
                    'last_login',
                 )
