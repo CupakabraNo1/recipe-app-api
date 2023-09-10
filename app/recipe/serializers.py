@@ -25,7 +25,7 @@ class RecipeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Recipe
         fields = ['id', 'title', 'time_minutes', 'price', 'link', 'tags']
-        read_only_fields = ['id'] 
+        read_only_fields = ['id']
 
     def _get_or_create_tags(self, tags, recipe):
         """Handle getting or creating tags as needed."""
@@ -54,6 +54,7 @@ class RecipeSerializer(serializers.ModelSerializer):
             setattr(instance, attr, value)
         instance.save()
         return instance
+
 
 class RecipeDetailSerializer(RecipeSerializer):
     """Serializer for recipe detail view."""
