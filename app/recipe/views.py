@@ -96,13 +96,14 @@ class RecipeViewSet(viewsets.ModelViewSet):
             return Response(serializer.data, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
 @extend_schema_view(
     list=extend_schema(
         parameters=[
             OpenApiParameter(
                 'assigned_only',
                 OpenApiTypes.INT,
-                enum=[0,1],
+                enum=[0, 1],
                 description='Filter by items assigned to recipes.',
                 required=False
             )
